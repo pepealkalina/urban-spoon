@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepealkalina <pepealkalina@student.42.f    +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:52:21 by pepealkalin       #+#    #+#             */
-/*   Updated: 2023/01/07 16:08:42 by pepealkalin      ###   ########.fr       */
+/*   Updated: 2023/01/10 13:21:39 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@ void	ft_put_tiles(t_game_data *game, t_game_img *img)
 			else if (game->map[i][j] == EXIT)
 				mlx_image_to_window(game->mlx, img->exit_img, j * 64, i * 64);
 			else if (game->map[i][j] == COLLECT)
+			{
+				mlx_image_to_window(game->mlx, img->floor_img, j * 64, i * 64);
 				mlx_image_to_window(game->mlx,
 					img->collect_img, j * 64, i * 64);
+			}
 			else
 				mlx_image_to_window(game->mlx, img->floor_img, j * 64, i * 64);
 			j++;
@@ -61,10 +64,9 @@ void	ft_put_tiles(t_game_data *game, t_game_img *img)
 	}
 }
 
-void	ft_draw_map(t_game_data *game, t_game_img *img,
-	t_game_textures *textures)
+void	ft_draw_map(t_game_data *game, t_game_textures *textures)
 {
 	ft_get_textures(textures);
-	ft_get_img(textures, img, game->mlx);
-	ft_put_tiles(game, img);
+	ft_get_img(textures, &(*game).img, game->mlx);
+	ft_put_tiles(game, &(*game).img);
 }

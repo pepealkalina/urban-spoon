@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pepealkalina <pepealkalina@student.42.f    +#+  +:+       +#+         #
+#    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 16:23:53 by pepealkalin       #+#    #+#              #
-#    Updated: 2023/01/07 16:07:39 by pepealkalin      ###   ########.fr        #
+#    Updated: 2023/01/09 19:03:50 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long.out
-MLX42 = MLX42/libmlx42.a -lglfw -L /opt/homebrew/Cellar/glfw/3.3.8/lib/
+MLX42 = MLX42/libmlx42.a -I include -lglfw -L "/Users/preina-g/.brew/opt/glfw/lib/"
 
 OBJ = $(SRC:.c=.o)
 
@@ -20,7 +20,7 @@ LIBFT = libft/libft.a
 GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 SRC = $(GNL) main.c read_map.c check_map_utils.c check_map.c \
-		game_main.c draw_map.c gameplay.c
+		game_main.c draw_map.c valid_move.c
 
 PRINTF = ft_printf/libftprintf.a
 
@@ -34,7 +34,10 @@ $(NAME): $(OBJ)
 	@make -C libft -s 
 	@make -C ft_printf -s
 	@make -s -C MLX42
-	$(CC) $(CCFLAGS) $(SRC) $(LIBFT) $(PRINTF) $(MLX42) -o $(NAME)
+	$(CC) $(CCFLAGS) $(SRC) $(LIBFT) $(PRINTF) $(MLX42) -o $(NAME) -g
+
+%.o: %.c
+	$(CC) $(CCFLAGS) -c -o $@ $< -g
 
 clean:
 	@make clean -C libft -s

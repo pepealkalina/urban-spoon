@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepealkalina <pepealkalina@student.42.f    +#+  +:+       +#+        */
+/*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 09:49:47 by pepealkalin       #+#    #+#             */
-/*   Updated: 2023/01/06 20:59:59 by pepealkalin      ###   ########.fr       */
+/*   Updated: 2023/01/10 16:52:22 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	ft_have_exit(t_game_data *game)
 		}
 		i++;
 	}
-	if (game->collect < 1 || game->exit < 1 || game->init < 1)
+	if (game->collect < 1 || game->exit < 1 || game->init != 1)
 		return (FALSE);
 	return (TRUE);
 }
