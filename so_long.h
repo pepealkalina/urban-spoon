@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:46:37 by pepealkalin       #+#    #+#             */
-/*   Updated: 2023/01/10 16:04:20 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:53:13 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ typedef enum e_bool
 
 typedef struct s_game_img
 {
+	
 	mlx_image_t	*collect_img;
+	mlx_image_t	*collect2_img;
 	mlx_image_t	*wall_img;
 	mlx_image_t	*exit_img;
+	mlx_image_t	*exit2_img;
 	mlx_image_t	*floor_img;
 	mlx_image_t	*icon_img;
+	mlx_image_t	*icon2_img;
 }t_game_img;
 
 typedef struct s_player
@@ -60,7 +64,7 @@ typedef struct s_game_data
 	int					heigth;
 	int					width;
 	int					collect_count;
-	int					count;
+	int					items;
 	int					move_count;
 	mlx_t				*mlx;
 	struct s_player		player;
@@ -70,13 +74,14 @@ typedef struct s_game_data
 typedef struct s_game_textures
 {
 	mlx_texture_t	*collect_tx;
+	mlx_texture_t	*collect2_tx;
 	mlx_texture_t	*wall_tx;
 	mlx_texture_t	*exit_tx;
+	mlx_texture_t	*exit2_tx;
 	mlx_texture_t	*floor_tx;
 	mlx_texture_t	*icon_tx;
+	mlx_texture_t	*icon2_tx;
 }t_game_textures;
-
-
 
 //functions
 char	**ft_read_map(char *file);
@@ -93,4 +98,9 @@ void	ft_move_up(t_game_data *game);
 void	ft_move_down(t_game_data *game);
 void	ft_move_right(t_game_data *game);
 void	ft_move_left(t_game_data *game);
+void	ft_gameplay(void *param);
+void	ft_is_collect(t_game_data *game);
+void	ft_delete_collect(t_game_data *game);
+int		ft_count_collectables(t_game_data *game);
+void	ft_map_data(t_game_data *game, char **map);
 #endif

@@ -6,7 +6,7 @@
 /*   By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:52:21 by pepealkalin       #+#    #+#             */
-/*   Updated: 2023/01/10 13:21:39 by preina-g         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:53:38 by preina-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ void	ft_get_textures(t_game_textures *texture)
 	texture->floor_tx = mlx_load_png("./textures/floor.png");
 	texture->wall_tx = mlx_load_png("./textures/wall.png");
 	texture->exit_tx = mlx_load_png("./textures/exit.png");
+	texture->exit2_tx = mlx_load_png("./textures/exit2.png");
 	texture->icon_tx = mlx_load_png("./textures/icon.png");
+	texture->icon2_tx = mlx_load_png("./textures/icon2.png");
 	texture->collect_tx = mlx_load_png("./textures/collect.png");
+	texture->collect_tx = mlx_load_png("./textures/collect2.png");
 }
 
 void	ft_get_img(t_game_textures *texture, t_game_img *img, mlx_t *mlx)
@@ -26,8 +29,11 @@ void	ft_get_img(t_game_textures *texture, t_game_img *img, mlx_t *mlx)
 	img->floor_img = mlx_texture_to_image(mlx, texture->floor_tx);
 	img->wall_img = mlx_texture_to_image(mlx, texture->wall_tx);
 	img->exit_img = mlx_texture_to_image(mlx, texture->exit_tx);
+	img->exit2_img = mlx_texture_to_image(mlx, texture->exit2_tx);
 	img->icon_img = mlx_texture_to_image(mlx, texture->icon_tx);
+	img->icon2_img = mlx_texture_to_image(mlx, texture->icon2_tx);
 	img->collect_img = mlx_texture_to_image(mlx, texture->collect_tx);
+	img->collect2_img = mlx_texture_to_image(mlx, texture->collect2_tx);
 }
 
 void	ft_put_tiles(t_game_data *game, t_game_img *img)

@@ -6,7 +6,7 @@
 #    By: preina-g <preina-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/17 16:23:53 by pepealkalin       #+#    #+#              #
-#    Updated: 2023/01/09 19:03:50 by preina-g         ###   ########.fr        #
+#    Updated: 2023/01/11 11:13:43 by preina-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT = libft/libft.a
 GNL = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 SRC = $(GNL) main.c read_map.c check_map_utils.c check_map.c \
-		game_main.c draw_map.c valid_move.c
+		game_main.c draw_map.c valid_move.c game_loop.c
 
 PRINTF = ft_printf/libftprintf.a
 
